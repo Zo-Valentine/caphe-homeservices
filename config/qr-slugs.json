@@ -1,0 +1,10 @@
+{
+  "slugs": [
+    {
+      "slug": "allcity-vehicle",
+      "label": "AllCity service vehicle",
+      "target": "/",
+      "active": true
+    }
+  ]
+}
