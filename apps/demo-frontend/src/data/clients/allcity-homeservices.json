@@ -13,7 +13,11 @@
     "primaryColor": "#A92E25",
     "accentColor": "#FFD23F",
     "logoUrl": null,
-    "phone": "(714) 895-1010"
+    "phone": "(714) 895-1010",
+    "heroHeadline": "Protect your home. Stop pest problems.",
+    "heroSubtext": "Concerned about termites or unwanted pests? Tell us what's happening at your property and we'll help you take the next step.",
+    "heroImageUrl": "/allcity-service-vehicle.jpg",
+    "serviceAreaLabel": "Serving Southern California"
   },
   "intake": {
     "steps": ["service", "property", "scheduling", "contact", "confirmation"],

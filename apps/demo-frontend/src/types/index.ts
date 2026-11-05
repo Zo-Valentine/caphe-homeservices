@@ -28,6 +28,10 @@ export interface ClientBranding {
   accentColor: string;
   logoUrl?: string;
   phone?: string;
+  heroHeadline?: string;
+  heroSubtext?: string;
+  heroImageUrl?: string;
+  serviceAreaLabel?: string;
 }
 
 export interface ClientReviewConfig {

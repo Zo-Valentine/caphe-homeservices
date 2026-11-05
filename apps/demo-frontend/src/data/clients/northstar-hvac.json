@@ -13,7 +13,11 @@
     "primaryColor": "#183B56",
     "accentColor": "#F4A62A",
     "logoUrl": null,
-    "phone": null
+    "phone": null,
+    "heroHeadline": "Comfort starts here.",
+    "heroSubtext": "Tell us what's happening with your heating or cooling system. We'll help you take the next step.",
+    "heroImageUrl": null,
+    "serviceAreaLabel": "Licensed & Insured"
   },
   "intake": {
     "steps": ["service", "issue", "property", "scheduling", "contact", "confirmation"],

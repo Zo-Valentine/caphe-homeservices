@@ -3,8 +3,8 @@ import allcity from "./allcity-homeservices.json";
 import northstar from "./northstar-hvac.json";
 
 const registry: Record<string, ClientConfig> = {
-  "allcity-homeservices": allcity as ClientConfig,
-  "northstar-hvac": northstar as ClientConfig,
+  "allcity-homeservices": allcity as unknown as ClientConfig,
+  "northstar-hvac": northstar as unknown as ClientConfig,
 };
 
 export function getClientConfig(slug: string): ClientConfig | null {

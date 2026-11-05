@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getClientConfig } from "@/data/clients";
 
-export function GET(
+export async function GET(
   _req: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
-  const config = getClientConfig(params.slug);
+  const { slug } = await params;
+  const config = getClientConfig(slug);
   if (!config) {
     return NextResponse.json({ error: "Config not found" }, { status: 404 });
   }
