@@ -1,0 +1,33 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "redirects": [
+    {
+      "source": "/q/allcity-vehicle",
+      "destination": "/allcity-homeservices?qr=allcity-vehicle",
+      "permanent": false
+    },
+    {
+      "source": "/q/northstar-hvac",
+      "destination": "/northstar-hvac?qr=northstar-hvac",
+      "permanent": false
+    },
+    {
+      "source": "/q/:slug",
+      "destination": "/:slug?qr=:slug",
+      "permanent": false
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    }
+  ]
+}
