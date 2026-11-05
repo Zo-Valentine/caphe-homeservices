@@ -1,0 +1,76 @@
+{
+  "industryId": "pest_control",
+  "displayName": "Pest Control",
+  "conversionCTA": "Request inspection",
+  "defaultTheme": "industrial",
+  "defaultServices": [
+    { "id": "termite_inspection", "label": "Termite inspection" },
+    { "id": "termite_treatment", "label": "Termite treatment" },
+    { "id": "general_pest", "label": "General pest control" },
+    { "id": "rodent_control", "label": "Rodent control" }
+  ],
+  "intakeQuestions": {
+    "service": [],
+    "issue": [
+      {
+        "id": "pest_type",
+        "label": "What are you seeing?",
+        "type": "select",
+        "options": [
+          { "value": "termites", "label": "Termites or wood damage" },
+          { "value": "ants", "label": "Ants" },
+          { "value": "cockroaches", "label": "Cockroaches" },
+          { "value": "rodents", "label": "Mice or rats" },
+          { "value": "other", "label": "Other / not sure" }
+        ],
+        "required": false
+      },
+      {
+        "id": "severity",
+        "label": "How would you describe the problem?",
+        "type": "select",
+        "options": [
+          { "value": "suspected", "label": "I suspect a problem but haven't confirmed" },
+          { "value": "occasional", "label": "Occasional sightings" },
+          { "value": "recurring", "label": "Recurring — I've had this treated before" },
+          { "value": "active", "label": "Active infestation" }
+        ],
+        "required": false
+      }
+    ],
+    "property": [
+      {
+        "id": "property_type",
+        "label": "Property type",
+        "type": "select",
+        "options": [
+          { "value": "residential", "label": "Single-family home" },
+          { "value": "condo", "label": "Condo / townhouse" },
+          { "value": "commercial", "label": "Commercial" },
+          { "value": "multi_unit", "label": "Multi-unit" }
+        ],
+        "required": true
+      },
+      { "id": "zip_code", "label": "ZIP code", "type": "text", "required": true }
+    ],
+    "scheduling": [
+      {
+        "id": "urgency",
+        "label": "When do you need service?",
+        "type": "select",
+        "options": [
+          { "value": "asap", "label": "As soon as possible" },
+          { "value": "within_week", "label": "Within a week" },
+          { "value": "planning_ahead", "label": "I'm planning ahead" }
+        ],
+        "required": true
+      }
+    ],
+    "contact": [
+      { "id": "name", "label": "Your name", "type": "text", "required": true },
+      { "id": "phone", "label": "Phone number", "type": "text", "required": true },
+      { "id": "email", "label": "Email (optional)", "type": "text", "required": false }
+    ],
+    "confirmation": []
+  }
+}

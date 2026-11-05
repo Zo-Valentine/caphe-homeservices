@@ -1,0 +1,46 @@
+version: "3.9"
+
+# Adapted from caphe-curbiq/docker-compose.yml
+# Runs Postgres + lead API backend together.
+# The Next.js frontend is deployed to Vercel separately.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: caphe_homeservices_postgres
+    environment:
+      POSTGRES_DB: caphe_homeservices
+      POSTGRES_USER: caphe
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-caphe_dev}
+    ports:
+      - "5435:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ../database/schema.sql:/docker-entrypoint-initdb.d/001_schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U caphe -d caphe_homeservices"]
+      interval: 10s
+      retries: 5
+
+  lead-api:
+    build:
+      context: ../..
+      dockerfile: infrastructure/docker/Dockerfile
+    container_name: caphe_homeservices_api
+    environment:
+      DATABASE_URL: postgresql://caphe:${POSTGRES_PASSWORD:-caphe_dev}@postgres:5432/caphe_homeservices
+      ENVIRONMENT: ${ENVIRONMENT:-development}
+      LEAD_WEBHOOK_URL: ${LEAD_WEBHOOK_URL:-}
+      HUBSPOT_API_KEY: ${HUBSPOT_API_KEY:-}
+      FOLLOWUPBOSS_API_KEY: ${FOLLOWUPBOSS_API_KEY:-}
+      WHATSAPP_TOKEN: ${WHATSAPP_TOKEN:-}
+      WHATSAPP_PHONE_ID: ${WHATSAPP_PHONE_ID:-}
+    ports:
+      - "8010:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

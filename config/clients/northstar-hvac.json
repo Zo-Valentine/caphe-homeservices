@@ -1,0 +1,38 @@
+{
+  "clientId": "northstar-hvac",
+  "industry": "hvac",
+  "template": "industrial",
+  "environment": "demo",
+  "routing": {
+    "slug": "northstar-hvac",
+    "destination": "/northstar-hvac"
+  },
+  "branding": {
+    "businessName": "Northstar HVAC",
+    "tagline": "Heating · Cooling · Home Comfort",
+    "primaryColor": "#183B56",
+    "accentColor": "#F4A62A",
+    "logoUrl": null,
+    "phone": null
+  },
+  "intake": {
+    "steps": ["service", "issue", "property", "scheduling", "contact", "confirmation"],
+    "services": [
+      "AC repair",
+      "Heating repair",
+      "New system installation",
+      "System maintenance",
+      "Indoor air quality"
+    ]
+  },
+  "reviews": {
+    "provider": "manual",
+    "enabled": true,
+    "verified": false
+  },
+  "crm": {
+    "mode": "standalone",
+    "provider": null
+  },
+  "leadDestination": "test-inbox"
+}

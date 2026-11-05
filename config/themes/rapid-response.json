@@ -1,0 +1,18 @@
+{
+  "themeId": "rapid-response",
+  "displayName": "Rapid Response Emergency",
+  "heroHeadline": "Emergency HVAC service. Right now.",
+  "heroSubtext": "After-hours, same-day, urgent repair. Tell us your situation.",
+  "colors": {
+    "primary": "#1a1a1a",
+    "accent": "#D63031",
+    "background": "#111111",
+    "surface": "#1e1e1e",
+    "text": "#f5f5f5",
+    "muted": "#888888"
+  },
+  "typography": {
+    "headingFont": "Arial, Helvetica, sans-serif",
+    "bodyFont": "Arial, Helvetica, sans-serif"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "clientId": "allcity-homeservices",
+  "industry": "pest_control",
+  "template": "industrial",
+  "environment": "demo",
+  "routing": {
+    "slug": "allcity-vehicle",
+    "destination": "/allcity-homeservices"
+  },
+  "branding": {
+    "businessName": "AllCity Home Services",
+    "tagline": "Termite & Pest Control",
+    "primaryColor": "#A92E25",
+    "accentColor": "#FFD23F",
+    "logoUrl": null,
+    "phone": "(714) 895-1010"
+  },
+  "intake": {
+    "steps": ["service", "property", "scheduling", "contact", "confirmation"],
+    "services": [
+      "Termite inspection",
+      "Termite treatment",
+      "General pest control",
+      "Rodent control"
+    ]
+  },
+  "reviews": {
+    "provider": "manual",
+    "enabled": true,
+    "verified": false
+  },
+  "crm": {
+    "mode": "standalone",
+    "provider": null
+  },
+  "leadDestination": "test-inbox"
+}

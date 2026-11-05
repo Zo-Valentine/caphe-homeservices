@@ -1,0 +1,112 @@
+{
+  "name": "Caphè Home Services — Capture Lead",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "caphe-hs-lead",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "name": "Webhook: Lead submitted",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.isDemo }}",
+              "operation": "isFalse"
+            }
+          ]
+        }
+      },
+      "name": "Check: not demo",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{ $env.LEAD_API_BASE }}/api/leads",
+        "method": "POST",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "clientId", "value": "={{ $json.clientId }}" },
+            { "name": "slug", "value": "={{ $json.slug }}" },
+            { "name": "serviceType", "value": "={{ $json.service }}" },
+            { "name": "name", "value": "={{ $json.name }}" },
+            { "name": "phone", "value": "={{ $json.phone }}" },
+            { "name": "email", "value": "={{ $json.email }}" },
+            { "name": "urgency", "value": "={{ $json.urgency }}" },
+            { "name": "propertyType", "value": "={{ $json.propertyType }}" },
+            { "name": "zipCode", "value": "={{ $json.zipCode }}" }
+          ]
+        }
+      },
+      "name": "POST: Save lead to DB",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [710, 200]
+    },
+    {
+      "parameters": {
+        "url": "https://graph.facebook.com/v18.0/={{ $env.WHATSAPP_PHONE_ID }}/messages",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $env.WHATSAPP_TOKEN }}" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "messaging_product", "value": "whatsapp" },
+            {
+              "name": "to",
+              "value": "={{ $env.NOTIFICATION_PHONE }}"
+            },
+            { "name": "type", "value": "text" },
+            {
+              "name": "text",
+              "value": "={ \"body\": \"New {{ $node['Webhook: Lead submitted'].json.service }} lead from {{ $node['Webhook: Lead submitted'].json.name }} ({{ $node['Webhook: Lead submitted'].json.phone }}) · {{ $node['Webhook: Lead submitted'].json.clientId }} · urgency: {{ $node['Webhook: Lead submitted'].json.urgency }}\" }"
+            }
+          ]
+        }
+      },
+      "name": "WhatsApp: Notify team",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [940, 200]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"status\": \"demo\", \"message\": \"Demo submission logged but not persisted.\" }"
+      },
+      "name": "Respond: demo noop",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [710, 420]
+    }
+  ],
+  "connections": {
+    "Webhook: Lead submitted": {
+      "main": [[{ "node": "Check: not demo", "type": "main", "index": 0 }]]
+    },
+    "Check: not demo": {
+      "main": [
+        [{ "node": "POST: Save lead to DB", "type": "main", "index": 0 }],
+        [{ "node": "Respond: demo noop", "type": "main", "index": 0 }]
+      ]
+    },
+    "POST: Save lead to DB": {
+      "main": [[{ "node": "WhatsApp: Notify team", "type": "main", "index": 0 }]]
+    }
+  }
+}

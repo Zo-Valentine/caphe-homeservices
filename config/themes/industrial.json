@@ -1,0 +1,18 @@
+{
+  "themeId": "industrial",
+  "displayName": "Industrial Local Service",
+  "heroHeadline": "Comfort starts here.",
+  "heroSubtext": "Tell us what's happening. We'll help you take the next step.",
+  "colors": {
+    "primary": "#183B56",
+    "accent": "#F4A62A",
+    "background": "#0f1923",
+    "surface": "#1b2a38",
+    "text": "#f5f0e8",
+    "muted": "#8a9baa"
+  },
+  "typography": {
+    "headingFont": "Arial, Helvetica, sans-serif",
+    "bodyFont": "Arial, Helvetica, sans-serif"
+  }
+}

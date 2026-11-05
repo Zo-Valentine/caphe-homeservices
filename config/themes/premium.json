@@ -1,0 +1,18 @@
+{
+  "themeId": "premium",
+  "displayName": "Home Comfort Premium",
+  "heroHeadline": "Your home, perfectly comfortable.",
+  "heroSubtext": "Premium HVAC service and installation. Let's start with what you need.",
+  "colors": {
+    "primary": "#2C2C2C",
+    "accent": "#B8964E",
+    "background": "#1a1814",
+    "surface": "#252219",
+    "text": "#f0ece4",
+    "muted": "#9a9080"
+  },
+  "typography": {
+    "headingFont": "Georgia, serif",
+    "bodyFont": "Arial, Helvetica, sans-serif"
+  }
+}

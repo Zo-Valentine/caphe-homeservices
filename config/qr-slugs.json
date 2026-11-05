@@ -2,9 +2,19 @@
   "slugs": [
     {
       "slug": "allcity-vehicle",
-      "label": "AllCity service vehicle",
-      "target": "/",
-      "active": true
+      "label": "AllCity service vehicle (pest control demo)",
+      "clientId": "allcity-homeservices",
+      "target": "/allcity-homeservices",
+      "active": true,
+      "environment": "demo"
+    },
+    {
+      "slug": "northstar-hvac",
+      "label": "Northstar HVAC — industrial template demo",
+      "clientId": "northstar-hvac",
+      "target": "/northstar-hvac",
+      "active": true,
+      "environment": "demo"
     }
   ]
 }

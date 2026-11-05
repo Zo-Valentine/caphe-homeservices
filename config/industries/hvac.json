@@ -1,0 +1,76 @@
+{
+  "industryId": "hvac",
+  "displayName": "HVAC",
+  "conversionCTA": "Request service",
+  "defaultTheme": "industrial",
+  "defaultServices": [
+    { "id": "ac_repair", "label": "AC repair", "description": "Air conditioner not cooling, not running, or making noise" },
+    { "id": "heating_repair", "label": "Heating repair", "description": "Furnace or heat pump issues" },
+    { "id": "installation", "label": "New system installation", "description": "Replace or install new HVAC system" },
+    { "id": "maintenance", "label": "System maintenance", "description": "Tune-up, filter service, inspection" },
+    { "id": "air_quality", "label": "Indoor air quality", "description": "Filtration, humidity, ventilation" }
+  ],
+  "intakeQuestions": {
+    "service": [],
+    "issue": [
+      {
+        "id": "system_type",
+        "label": "What type of system do you have?",
+        "type": "select",
+        "options": [
+          { "value": "central_ac", "label": "Central AC / forced air" },
+          { "value": "heat_pump", "label": "Heat pump" },
+          { "value": "mini_split", "label": "Mini-split (ductless)" },
+          { "value": "window_unit", "label": "Window unit" },
+          { "value": "not_sure", "label": "Not sure" }
+        ],
+        "required": false
+      },
+      {
+        "id": "issue_description",
+        "label": "Describe what's happening",
+        "type": "textarea",
+        "required": false
+      }
+    ],
+    "property": [
+      {
+        "id": "property_type",
+        "label": "Property type",
+        "type": "select",
+        "options": [
+          { "value": "residential", "label": "Single-family home" },
+          { "value": "condo", "label": "Condo / townhouse" },
+          { "value": "commercial", "label": "Commercial" },
+          { "value": "multi_unit", "label": "Multi-unit" }
+        ],
+        "required": true
+      },
+      {
+        "id": "zip_code",
+        "label": "ZIP code",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "scheduling": [
+      {
+        "id": "urgency",
+        "label": "How soon do you need service?",
+        "type": "select",
+        "options": [
+          { "value": "asap", "label": "As soon as possible (24–48 hours)" },
+          { "value": "within_week", "label": "Within a week" },
+          { "value": "planning_ahead", "label": "I'm planning ahead" }
+        ],
+        "required": true
+      }
+    ],
+    "contact": [
+      { "id": "name", "label": "Your name", "type": "text", "required": true },
+      { "id": "phone", "label": "Phone number", "type": "text", "required": true },
+      { "id": "email", "label": "Email (optional)", "type": "text", "required": false }
+    ],
+    "confirmation": []
+  }
+}

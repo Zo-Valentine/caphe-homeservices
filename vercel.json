@@ -1,8 +1,21 @@
 {
+  "buildCommand": "cd apps/demo-frontend && npm install && npm run build",
+  "outputDirectory": "apps/demo-frontend/.next",
+  "framework": "nextjs",
   "redirects": [
     {
       "source": "/q/allcity-vehicle",
-      "destination": "/?qr=allcity-vehicle",
+      "destination": "/allcity-homeservices?qr=allcity-vehicle",
+      "permanent": false
+    },
+    {
+      "source": "/q/northstar-hvac",
+      "destination": "/northstar-hvac?qr=northstar-hvac",
+      "permanent": false
+    },
+    {
+      "source": "/q/:slug",
+      "destination": "/:slug?qr=:slug",
       "permanent": false
     }
   ],
